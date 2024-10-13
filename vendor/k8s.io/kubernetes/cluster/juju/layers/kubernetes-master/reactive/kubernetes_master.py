@@ -1054,7 +1054,7 @@ def create_kubeconfig(kubeconfig, server, ca, key=None, certificate=None,
 
 def get_dns_ip():
     cmd = "kubectl get service --namespace kube-system kube-dns --output json"
-    output = check_output(cmd, shell=True).decode()
+    output = check_output(cmd, shell=False).decode()
     svc = json.loads(output)
     return svc['spec']['clusterIP']
 
