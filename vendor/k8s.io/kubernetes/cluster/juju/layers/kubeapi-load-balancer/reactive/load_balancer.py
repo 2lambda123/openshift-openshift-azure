@@ -183,8 +183,7 @@ def upgrade_charm():
 def set_nginx_version():
     ''' Surface the currently deployed version of nginx to Juju '''
     cmd = 'nginx -v'
-    p = Popen(cmd, shell=True,
-              stdin=PIPE,
+    p = Popen(cmd, shell=False, stdin=PIPE,
               stdout=PIPE,
               stderr=STDOUT,
               close_fds=True)
